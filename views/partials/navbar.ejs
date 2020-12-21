@@ -1,0 +1,19 @@
+<div class ="navbar navbar-expand-lg navbar-light">
+
+    <img src='../images/cluck.png' alt='chicken cluck' width="50px" height="50px">
+    <br/>
+    <a class="navbar-brand" href="/">Cluck!</a>
+    <br/>
+    <% if (username) { %>
+        <span class='navbar-text text-dark'>
+          👩‍💻 <%= username %>
+        </span>
+        <form action='/sign_out' method="POST">
+          <button type='submit' class="btn btn-outline-dark">Sing Out</button>
+        </form>
+      <% }%>
+
+    <%if(!username){%>
+    <a class="navbar-brand" href="/">Sign In</a>
+<%}%>
+</div>

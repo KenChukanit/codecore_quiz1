@@ -36,6 +36,7 @@ app.use((request,response, next)=>{
     next();
 })
 
+//Home page to index page
 app.get(('/'), (request,response)=>{
     const ONE_DAY = 1000*60*60*24;
     response.cookie('hello','username',{maxAge: ONE_DAY});
@@ -45,6 +46,7 @@ app.get(('/'), (request,response)=>{
         response.render(('clucks/index'),{clucks});
     })
 })
+//render for sign_in page
 app.get(('/sign_in'), (request,response)=>{
     const ONE_DAY = 1000*60*60*24;
     response.cookie('hello','username',{maxAge: ONE_DAY});

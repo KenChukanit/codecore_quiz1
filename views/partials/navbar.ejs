@@ -1,20 +1,19 @@
-<div class ="navbar navbar-expand-lg navbar-light">
-    <a href='/clucks'>
-    <img src='../images/cluck.png' alt='chicken cluck' width="50px" height="50px">
-    </a>
-    <br/>
-    <a class="navbar-brand" href="/clucks/new">Cluck!</a>
-    <br/>
-    <% if (username) { %>
-        <span class='navbar-text text-dark'>
-          👩‍💻 <%= username %>
-        </span>
+<div class ="d-flex justify-content-between mr-4 mt-4 mb-4">
+    <span >
+        <a href='/clucks' class="d-flex flex-start bd-highlight">
+        <img src='../images/cluck.png' alt='chicken cluck' width="50px" height="50px">
+        </a>
+    </span>
+    <span>
+        <a class="btn btn-secondary btn-lg" href="/clucks/new">Cluck!</a>
+        <% if (username) { %>
+            👩‍💻 <%= username %>
         <form action='/sign_out' method="POST">
-          <button type='submit' class="btn btn-outline-dark">Sing Out</button>
+        <button type='submit' class="navbar-brand">Sing Out</button>
         </form>
-      <% }%>
-
-    <%if(!username){%>
-    <a class="navbar-brand" href="/sign_in">Sign In</a>
-<%}%>
-</div>
+        <%}else{%>
+        <a  class="btn btn-secondary btn-lg" href="/sign_in">Sign In</a>
+        <%}%>
+    </span>
+</div>              
+<hr>

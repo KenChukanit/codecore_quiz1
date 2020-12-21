@@ -1,35 +1,43 @@
 
 <%-include ('../partials/header')%>
 <main class="container">
-
-<%if(username){%>
-<div class ="card-body">
-<form action='/clucks' method='POST'>
-<!-- content -->
-<div class='form-group'>
-    <input
-    type='text'
-    class='form-control'
-    name='content'
-    placeholder="whatchoo cluckin' 'bout?"
-   
-    >
-</div>
-<!-- picture -->
-    <div class='form-group'>
-        <input
-        type='text'
-        class='form-control'
-        name='image_url'
-        placeholder='http://i.imgur.com/qM6KaEy.gifv'
-        
-        >
-    </div>
-        <input type='submit' value='Cluck!' class='btn btn-outline-success'>
-      </form>
-</div>
-<%}else{%>
-    <h2>Please Sign in to create new Cluck</h2>
-<%}%>
+    <div class="d-flex flex-row bd-highlight">
+        <div class ="container">
+            <div class="card mt-4 mb-4">
+                <%if(username){%>
+            <form action='/clucks' method='POST'>
+                    <em>content</em>
+                    <!-- content -->
+                <div class='form-group mb-4 mt-4'>
+                    <input
+                    type='text'
+                    class='form-control ml-4 mr-4'      
+                    name='content'
+                    placeholder="whatchoo cluckin' 'bout?"
+                    >
+                </div>
+                    <em>image image_url</em>
+                    <!-- picture -->
+                <div class='form-group'>
+                    <input
+                    type='text'
+                    class='form-control'
+                    name='image_url'
+                    placeholder='http://i.imgur.com/qM6KaEy.gifv'
+                    >
+                </div>
+                <input type='submit' value='Cluck!' class='btn btn-outline-success'>
+            </form>
+            </div>
+        </div>   
+    </div>                
+                <%}else{%>
+                <div class="card text-white bg-primary mb-3" >
+                        <div class="card-body">
+                            <h2>Please Sign in to create new Cluck</h2>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
 </main>
-      <%-include ('../partials/footer')%>
+<%-include ('../partials/footer')%>

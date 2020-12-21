@@ -1,24 +1,21 @@
 
 <%-include ('../partials/header')%>
 <main class="container">
-    <div class="d-flex flex-row bd-highlight">
-        <div class ="container">
-            <div class="card mt-4 mb-4">
+    <div class="d-flex align-self-center bd-highlight">
                 <%if(username){%>
-            <form action='/clucks' method='POST'>
+            <form action='/clucks' method='POST' class='form-control lg mb-4'>
                     <em>content</em>
                     <!-- content -->
-                <div class='form-group mb-4 mt-4'>
-                    <input
-                    type='text'
-                    class='form-control ml-4 mr-4'      
-                    name='content'
-                    placeholder="whatchoo cluckin' 'bout?"
-                    >
+                <div class='form-group mb-4 mt-1'>
+                    <textarea placeholder="whatchoo cluckin' 'bout?"
+                    class='form-control'
+                    rows="5" col="120" 
+                    name="content"
+                    ></textarea>
                 </div>
                     <em>image image_url</em>
                     <!-- picture -->
-                <div class='form-group'>
+                <div class='form-group mb-4 mt-1'>
                     <input
                     type='text'
                     class='form-control'
@@ -26,7 +23,10 @@
                     placeholder='http://i.imgur.com/qM6KaEy.gifv'
                     >
                 </div>
-                <input type='submit' value='Cluck!' class='btn btn-outline-success'>
+                <br>
+                <div class="d-flex flex-row-reverse bd-highlight">
+                    <input type='submit' value='Cluck!' class='btn btn-lg btn-outline-success'>
+                </div>
             </form>
             </div>
         </div>   

@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const knex = require('./db/client');
-
+const date =require('./date')
 
 app.use(express.static(path.join(__dirname,'public')));
 const logger = require('morgan');

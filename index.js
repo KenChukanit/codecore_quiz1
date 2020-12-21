@@ -33,13 +33,17 @@ app.use((request,response, next)=>{
     }
     next();
 })
-// Index page link to sign in page first
+
 app.get(('/'), (request,response)=>{
     const ONE_DAY = 1000*60*60*24;
     response.cookie('hello','username',{maxAge: ONE_DAY});
-    response.render('./clucks/index');
+    response.render('clucks/index');
 })
-
+app.get(('/sign_in'), (request,response)=>{
+    const ONE_DAY = 1000*60*60*24;
+    response.cookie('hello','username',{maxAge: ONE_DAY});
+    response.render('clucks/sign_in');
+})
 //for sign in
 app.post('/sign_in',(request,response)=>{
     const ONE_DAY = 1000*60*60*24;
@@ -54,6 +58,9 @@ app.post('/sign_out',(request,response)=>{
     response.redirect('/')
 })
 
+// Clucks Router
+const clucksRouter = require('./routes/clucks');
+app.use('/clucks',clucksRouter);
 
 
 const ADDRESS = 'localhost';

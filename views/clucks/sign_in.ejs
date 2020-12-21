@@ -1,0 +1,43 @@
+<%-include ('../partials/header')%>
+<main class = 'container'>
+
+
+
+
+
+
+
+    <div class="=container">
+        <% if (username) { %>
+           
+
+
+
+
+
+
+
+
+            
+          <% } else { %>
+            <div class="d-flex flex-row-reverse bd-highlight">
+                <form action='/sign_in'  method="POST" class='card-body'>
+                  <input class ='col' name='username' placeholder='e.g. Madam Welminster'>
+                    <div>
+                    <button type='submit' class="btn-info btn pull-right">Sign In</button>
+                    </div>
+                </form>
+            </div>
+          <% } %>
+    </div>
+
+
+
+
+
+</main>
+
+
+
+
+<%-include ('../partials/footer')%>

@@ -1,0 +1,35 @@
+
+<%-include ('../partials/header')%>
+<main class="container">
+
+<%if(username){%>
+<div class ="card-body">
+<form action='/lists' method='POST'>
+<!-- content -->
+<div class='form-group'>
+    <input
+    type='text'
+    class='form-control'
+    name='content'
+    placeholder="whatchoo cluckin' 'bout?"
+   
+    >
+</div>
+<!-- picture -->
+    <div class='form-group'>
+        <input
+        type='text'
+        class='form-control'
+        name='image_url'
+        placeholder='http://i.imgur.com/qM6KaEy.gifv'
+        
+        >
+    </div>
+        <input type='submit' value='submit' class='btn btn-outline-success'>
+      </form>
+</div>
+<%}else{%>
+    <h2>Please Sign in to create new Cluck</h2>
+<%}%>
+</main>
+      <%-include ('../partials/footer')%>

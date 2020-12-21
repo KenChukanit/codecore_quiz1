@@ -3,6 +3,8 @@ const app = express();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
+const knex = require('./db/client');
+
 
 app.use(express.static(path.join(__dirname,'public')));
 const logger = require('morgan');
@@ -37,7 +39,11 @@ app.use((request,response, next)=>{
 app.get(('/'), (request,response)=>{
     const ONE_DAY = 1000*60*60*24;
     response.cookie('hello','username',{maxAge: ONE_DAY});
-    response.render('clucks/index');
+    knex('clucks')
+    .orderBy('created_at','desc')
+    .then(clucks => {
+        response.render(('clucks/index'),{clucks});
+    })
 })
 app.get(('/sign_in'), (request,response)=>{
     const ONE_DAY = 1000*60*60*24;

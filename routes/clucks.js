@@ -8,6 +8,7 @@ const router = express.Router();
 
 //Index
 router.get('/',(request,response)=>{
+
     knex('clucks')
         .orderBy('created_at','desc')
         .then(clucks => {

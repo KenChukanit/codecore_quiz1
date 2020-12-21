@@ -2,11 +2,27 @@
 <main class = 'container'>
 
 
+    <%if(!clucks){%>
+        <h5> No clucks found</h5>   
+        <%}else{%>
+    
 
-<g1>aaa</g1>
-
-
-
+    <%for(let cluck of clucks){%>
+        <div class="d-flex justify-content-around">
+        <div class="d-flex flex-column">
+            <img src ="https://thumbs.dreamstime.com/b/chicken-hat-cartoon-little-yellow-red-bow-38158332.jpg"
+            alt="chicken avatar" width="30px" height="30px">
+        </div>
+    <div class="d-flex flex-row">
+        <h6 class="d-flex justify-content-between" ><%=cluck.username%></h6>
+        <em><%= new Date(cluck.created_at).toLocaleString() %>ago</em>
+        </div>
+       <p class ="d-flex justify-content-between" > <%=cluck.content%> </p>
+       <img src="<%=cluck.image_url%>" width="60px" height="60px">
+        </div>
+    </div>
+<%}}%>
+  
 
 </main>
 

@@ -4,6 +4,8 @@ const knex = require('../db/client');
 
 const router = express.Router();
 const friendlyTime = require('friendly-time');
+const { count } = require('../db/client');
+const hashtag = [];
 
 
 //Index
@@ -11,10 +13,34 @@ router.get('/',(request,response)=>{
     knex('clucks')
         .orderBy('created_at','desc')
         .then(clucks => {
-           const time=(date)=>{
-               return friendlyTime(new Date(date))
-           }
-            response.render(('clucks/index'),{clucks,time});
+            const time=(date)=>{
+            return friendlyTime(new Date(date))
+            }
+            //Add hashtag in array
+        
+            let hashtag =[];
+            for(let cluck of clucks){
+                let findhash = cluck.content.split(' ')
+                for(let tag of findhash){
+                if(tag[0]==='#'){
+                hashtag.push(tag);
+                }
+                }
+            }
+            // function to count hashtag 
+            // Sorry My Fn does not work, Not enough time to fix it
+            const countTag=(tag,arr)=>{
+                let count =0;
+                for(let has of arr){
+                    if(has === tag){
+                        count++
+                    }
+                }
+                return count;
+            }
+            console.log(countTag('#Doggo',hashtag))
+
+            response.render(('clucks/index'),{clucks,time,hashtag,countTag});
         })
 });
 

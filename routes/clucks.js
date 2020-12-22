@@ -3,16 +3,18 @@ const express = require('express');
 const knex = require('../db/client');
 
 const router = express.Router();
-
+const friendlyTime = require('friendly-time');
 
 
 //Index
 router.get('/',(request,response)=>{
-
     knex('clucks')
         .orderBy('created_at','desc')
         .then(clucks => {
-            response.render(('clucks/index'),{clucks});
+           const time=(date)=>{
+               return friendlyTime(new Date(date))
+           }
+            response.render(('clucks/index'),{clucks,time});
         })
 });
 

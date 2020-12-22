@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const knex = require('./db/client');
-const date =require('./date')
+const friendlyTime = require('friendly-time');
 
 app.use(express.static(path.join(__dirname,'public')));
 const logger = require('morgan');
@@ -43,7 +43,10 @@ app.get(('/'), (request,response)=>{
     knex('clucks')
     .orderBy('created_at','desc')
     .then(clucks => {
-        response.render(('clucks/index'),{clucks});
+        const time=(date)=>{
+            return friendlyTime(new Date(date))
+        }
+        response.render(('clucks/index'),{clucks,time});
     })
 })
 //render for sign_in page

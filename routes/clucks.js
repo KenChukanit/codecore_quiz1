@@ -8,11 +8,12 @@ const { count } = require('../db/client');
 const hashtag = [];
 
 
-//Index
+
+//Index to view all clucks
 router.get('/',(request,response)=>{
     knex('clucks')
         .orderBy('created_at','desc')
-        .then(clucks => {
+        .then(clucks => {s
             const time=(date)=>{
             return friendlyTime(new Date(date))
             }

@@ -1,19 +1,31 @@
 <div class ="d-flex justify-content-between mr-4 mt-4 mb-4">
-    <span >
-        <a href='/clucks' class="d-flex flex-start bd-highlight">
-        <img src='../images/cluck.png' alt='chicken cluck' width="50px" height="50px">
-        </a>
-    </span>
-    <span>
-        <a class="btn btn-secondary btn-lg" href="/clucks/new">Cluck!</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" ></nav>
+    <!-- To Index Page -->
+        <span >
+            <a href='/clucks' class="d-flex flex-start bd-highlight">
+            <img src='../images/cluck.png' alt='chicken cluck' width="50px" height="50px">
+            </a>
+        </span>
+    <!-- make space around tag     -->
+        <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
         <% if (username) { %>
-            👩‍💻 <%= username %>
-        <form action='/sign_out' method="POST">
-        <button type='submit' class="navbar-brand">Sing Out</button>
-        </form>
+        <span>
+    <!-- To New Cluck Page -->
+            <form action='/sign_out' method="POST">
+                <a class="btn btn-secondary btn-lg" href="/clucks/new">Cluck!</a>
+            <!-- To Display -->
+                <%= username %>
+            <!-- To Sign Out -->
+                <button type='submit' class="btn btn-secondary btn-lg">Sing Out</button>
+            </form>
+        </span>
         <%}else{%>
-        <a  class="btn btn-secondary btn-lg" href="/sign_in">Sign In</a>
+        <span>
+            <!-- To New Cluck Page -->
+            <a class="btn btn-secondary btn-lg" href="/clucks/new">Cluck!</a>
+            <!-- To Sign In Page -->
+            <a  class="btn btn-secondary btn-lg" href="/sign_in">Sign In</a>
+        </span>
         <%}%>
-    </span>
+    </nav>
 </div>              
-<hr>

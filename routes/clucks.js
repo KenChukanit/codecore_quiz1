@@ -28,6 +28,7 @@ router.get('/',(request,response)=>{
                 }
                 }
             }
+            
             // function to count hashtag 
             // Sorry My Fn does not work, Not enough time to fix it
             const countTag=(tag,arr)=>{
@@ -39,7 +40,7 @@ router.get('/',(request,response)=>{
                 }
                 return count;
             }
-            console.log(countTag('#Doggo',hashtag))
+            
 
             response.render(('clucks/index'),{clucks,time,hashtag,countTag});
         })

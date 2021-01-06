@@ -1,30 +1,32 @@
 <%-include ('../partials/header')%>
 <main class = 'container '>
-<div  class="d-flex flex-column align-items-start flex-wrap" >
-    <div class="d-none d-md-block  col-2 mr-2 border rounded vh-100 trending">
+<div style="display: flex; flex-direction: row;">
+    <div class="d-none d-md-block d-flex flex-row align-items-start col-4 mr-2 border rounded vh-100 trending ">
         <%for(let key in tagCount){%>
         
-        <%=key%> • <%=tagCount[key]%> 
+        <div><%=key%> • <%=tagCount[key]%> </div>
         <%}%>
-        </div>
-    <%for(let cluck of clucks){%>
-        <div class="d-flex card mb-4" style="width: 90%; display: flex;">
+    </div>
+    <div>
+        <%for(let cluck of clucks){%>
+        <div class="card d-flex  " style="width: 90%; display: flex; align-items: flex-start;">
             <div class="card-body d-flex flex-row align-items-start mt-2 mr-4">
                 <img class="img-fluid"src ="https://thumbs.dreamstime.com/b/chicken-hat-cartoon-little-yellow-red-bow-38158332.jpg"
                 alt="chicken avatar" width="50px" height="50px"> 
-            <div class="card-body d-flex flex-column align-items-start">
-                <h6 class="card-title"><%=cluck.username%> • <%= time(cluck.created_at)%></h6>
-                <p class="card-text"><%=cluck.content%></p>
-                <img class="img-fluid"src="<%=cluck.image_url%>" width="400px" height="300px">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <h6 class="card-title"><%=cluck.username%> • <%= time(cluck.created_at)%></h6>
+                    <p class="card-text"><%=cluck.content%></p>
+                    <img class="img-fluid"src="<%=cluck.image_url%>" width="400px" height="300px">
+                </div>
             </div>
         </div>
-        </div>
-    <%}%>
+        <%}%>
+    </div>
 </div>
 </main>
 <%-include ('../partials/footer')%>
 
 
 <!-- <div class="d-none d-md-block  col-4 mr-2 border rounded vh-100 trending">
- 
+
     class="col-sm-12 col-md-8" -->

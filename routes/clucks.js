@@ -13,7 +13,7 @@ const hashtag = [];
 router.get('/',(request,response)=>{
     knex('clucks')
         .orderBy('created_at','desc')
-        .then(clucks => {s
+        .then(clucks => {
             const time=(date)=>{
             return friendlyTime(new Date(date))
             }
@@ -28,20 +28,19 @@ router.get('/',(request,response)=>{
                 }
                 }
             }
-            // function to count hashtag 
-            // Sorry My Fn does not work, Not enough time to fix it
-            const countTag=(tag,arr)=>{
-                let count =0;
-                for(let has of arr){
-                    if(has === tag){
-                        count++
-                    }
-                }
-                return count;
-            }
-            console.log(countTag('#Doggo',hashtag))
+            // console.log(hashtag)
 
-            response.render(('clucks/index'),{clucks,time,hashtag,countTag});
+            let tagCount = {}
+                for(let i =0; i< hashtag.length;i++){
+                    if(!tagCount[hashtag[i]]){
+                        tagCount[hashtag[i]] = 1
+                    }else{
+                        tagCount[hashtag[i]] += 1
+                    }
+            }
+            
+            // console.log(tagCount)
+            response.render(('clucks/index'),{clucks,time, tagCount});
         })
 });
 

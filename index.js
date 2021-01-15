@@ -46,7 +46,29 @@ app.get(('/'), (request,response)=>{
         const time=(date)=>{
             return friendlyTime(new Date(date))
         }
-        response.render(('clucks/index'),{clucks,time});
+          //Add hashtag in array
+        let hashtag =[];
+        for(let cluck of clucks){
+            let findhash = cluck.content.split(' ')
+            for(let tag of findhash){
+            if(tag[0]==='#'){
+            hashtag.push(tag);
+            }
+            }
+          }
+          
+          // function to count hashtag 
+          // Sorry My Fn does not work, Not enough time to fix it
+        const countTag=(tag,arr)=>{
+            let count =0;
+            for(let has of arr){
+                if(has === tag){
+                count++
+                }
+            }
+            return count;
+        }
+        response.render(('clucks/index'),{clucks,time,hashtag,countTag});
     })
 })
 //render for sign_in page
